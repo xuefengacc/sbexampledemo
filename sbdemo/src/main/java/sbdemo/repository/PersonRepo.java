@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import sbdemo.model.Person;
 
 @Repository
-public interface PersonRepo extends CrudRepository<Long, Person>{
+public interface PersonRepo extends CrudRepository<Person, Long>{
 
 	/*
 	 * count() return long
