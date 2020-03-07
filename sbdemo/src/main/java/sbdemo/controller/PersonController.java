@@ -3,6 +3,8 @@ package sbdemo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,9 +20,9 @@ public class PersonController {
     protected PersonServiceImpl perService;
 
 	@GetMapping("/persons")
-	public List<Person> getPerson(){
+	public ResponseEntity<List<Person>> getPerson(){
 		
-		return perService.getAllPerson();
+		return new ResponseEntity<List<Person>>(perService.getAllPerson(), HttpStatus.OK);
 	}
 	
 	@PostMapping("/addperson")
