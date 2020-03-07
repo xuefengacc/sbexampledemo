@@ -1,0 +1,20 @@
+version: "3"
+services:
+  test-consumer:
+    image: consumer
+    ports:
+      - "8082:5000"
+    networks:
+      - consumer-test
+    depends_on:
+      - test
+ 
+  test:
+    image: sbdemo_img
+    ports:
+      - "8081:5000"
+    networks:
+      - consumer-test 
+
+networks:
+  consumer-test:
